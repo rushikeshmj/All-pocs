@@ -1,0 +1,237 @@
+##############################################
+CI Tools Task
+
+Below is the task which you need to perform On EC2 instance:
+For java application
+1.	Check security scanning using snyk which will cover the below features :
+              Snyk open source 
+              Snyk code
+Snyk container
+Snyk IaC
+2.	For the same code do secret scanning using trivy
+3.	Test Reports for the same project
+4.	Code coverage reports for the same project
+5.	Check all the maven plugins discussed in the demo 
+For the above tasks make the documentation for each and every step with screenshots
+
+Submission date : 13th May 2024 (EOD)
+
+Below is the link for the java application repository and it will be public for today only so clone that repo ASAP
+https://github.com/pratikshabhende/employee-management
+
+##############################################################
+
+Git & GitHub Tasks
+
+Below is the task which you need to perform for Git & GitHub:
+1)	Configure Git using git config command
+2)	Create a repo on GitHub, naming convention should be  <anymeaningfulname-empcode>
+3)	Clone the repo in local machine
+4)	Create a text file in that folder using git CLI
+5)	Use git status command for showcasing the status of staging area and git repository
+6)	Try to add & commit the changes
+7)	Create new repo and initialize it on local machine and add git URL as an alias in local machine
+8)	Push the code on main branch
+9)	Create feature branch and add new text file on feature branch (apply branch protection rule on main)
+10)	Use diff command to showcase the difference between 2 branches
+11)	Create pull request to merge 2 branches and try with other way from git CLI using git merge(both should be used)
+12)	Use git pull command to fetch the repo and download content from a remote repo and update the local repo to match the content
+13)	Create 4-5 commits and use reset command to go on 2nd commit
+14)	Fork the provided repo - https://github.com/Sakshibhu/localRepo
+15)	Create PAT token with 30 days expiration date
+
+•	Also explore other git commands like git revert, git cherrypick, git rebase, git stash, how to resolve merge conflict, git squash and explore more on git & GitHub
+
+#######################################################################
+
+GitHub Action Tasks
+
+Below is the task which you need to perform GitHub Actions POC:
+1.  CI steps for GitHub Actions workflow which includes
+I.	Checkout code to repo
+II.	unit testing & code coverage using jacoco
+III.	SCA using sonarqube along with quality gates
+IV.	Build and package JAR
+V.	Configuration of AWS
+VI.	login to ECR
+VII.	Build & tag Docker image
+VIII.	Scan the image using CI tool (Trivy)
+IX.	Push image to ECR
+
+2. CD steps includes
+I.	Deploy application on EC2 using SSH with key-value
+
+#########################################################################
+
+POC for SonarQube
+
+Deploy a java/python application on amazon EC2 and while utilising RDS database(MYsql/Postgres) for data storage to scan and evaluate the code quality in SonarQube.
+Create a custom Quality Profile and Quality Gate within SonarQube configured to enforce a code coverage threshold of 90%.
+
+ASW services:
+Services required- EC2 and RDS.
+Please create RDS free tier database.
+Make sure your EC2 and RDS are in the same VPC.
+
+#############################################################################
+
+GitLab Demo 
+
+Below is the task which you need to perform GitLab  POC:
+1.  CI steps for GitLab workflow which includes ( Use Self Hosted Runner )
+I.	Checkout code to repo
+II.	Unit testing 
+III.	code coverage using jacoco 
+IV.	SCA using SonarQubes along with quality gates
+V.	Build and package JAR
+VI.	Configuration of AWS
+VII.	login to ECR
+VIII.	Build & tag Docker image
+IX.	Scan the image using CI tool (Trivy)
+X.	Push image to ECR
+
+2. CD steps includes
+    1.  Deploy application on EC2 using SSH Private Key
+
+3. Integration of tools
+   1.  Jenkins GitLab Integration using same GitLab Repo
+
+fork my personal GitHub Account repo : sdeshpande2727/gitlab-java-demo: GitLab CI/CD implementation 
+
+####################################################################################
+
+POC list for Jenkins
+
+1.	Take a Python application and complete the CI/CD steps using Jenkins to deploy the application on an AWS EC2 instance.
+2.	Use Role based access control plugin – 
+	a)	Create 5 users
+	b)	Create 5 jobs
+	c)	User cannot create job
+	d)	User cannot run a job
+	
+Take a Python application and complete the CI/CD steps using Jenkins to deploy the application on an AWS EC2 instance.
+
+Below is the task which you need to perform Jenkins  POC:
+1.  CI steps 
+1.	 Checkout
+2.	Unit testing
+3.	Code coverage
+4.	Static code analysis using sonarqube
+5.	Check Quality gate
+6.	Build and tag image using Docker
+7.	Image scan using trivy
+8.	Push to AWS ECR
+ 
+2. CD steps 
+    1.  Deploy application on EC2 using SSH Private Key
+
+#######################################################################################
+
+Docker poc
+
+1.Write a docker file for Java,Python 
+2. Link mysql container with backend container
+3. Deploy 3 tier application in docker container expose frontend to internet on same machine
+4. How to override CMD command 
+5. Tag docker image and push it to dockerhub(private repo)
+6. Set env variable using dockerfile as well as command line
+7.use NGNIX as load balancer in 3rd POC 
+
+##########################################################################################
+
+AWS EC2 /ALB/ASG : POC
+
+Below is the task which you need to perform AWS EC2  POC:
+a.	Perform CI steps (EX: Gitlab, GitHub Actions, Jenkins) & Push the Image to AWS ECR 
+b.	Perform EC2 Instance Creation steps Create your own VPC and Subnets for the same n same the same VPC for the implementation of POC
+c.	Creating the Load balancer and deploy the application using Autoscaling Policy using Target group and Load Balancer
+
+##########################################################################
+
+IAM poc
+
+Below is the task which you need to perform AWS IAM  POC:
+
+a.	Create 5 IAM users:
+o	User 1: Name it appropriately (e.g., <name1-your_empid>, <name2-your_empid>, likewise)
+o	User 2, User 3, User 4, User 5
+o	Provide tags to each users as : name: Department
+	Value: <group_name>
+o	User 5 will have tag as: name: Department
+•	Value : Engineering 
+b.	For all users, enable MFA using a virtual MFA device.
+c.	Create an IAM group named "EC2Management", “VPCManagement”. 
+d.	After creating "EC2Management" group, add User 1 & User 2 to this group.
+e.	User 3 and User 4 in “VPCManagement” group.
+f.	User 5 will not be part of any group.
+g.	Create a policy for "EC2Management” group for creating & terminating EC2 instances 
+h.	Create a policy for " VPCManagement” group for only listing the Subnets in your account
+i.	Create 1 Role for EC2 instance for accessing data from ECR(read-only)
+j.	Assume role for test-user and give read-only access to S3 (You can try cross-account functionality from your side)
+a.	From your side check the session timing of assume role for 1 hour
+
+Tasks on policy and AssumeRole on higher level as follows:
+1.	Write a policy to restrict EC2 instance creation to t2.micro and t2.medium instances
+2.	Write an IAM Policy to Restrict EKS Node Creation to t3.medium Instances
+3.	Write an IAM Policy to Limit RDS Database Creation to db.t3.micro Instances
+4.	Write IAM Policies for accessing EC2 instance from another account.(AssumeRole - cross account)
+
+#################################################################################
+
+ECS AND ECR
+
+Below is the task which you need to perform ECS & ECR  POC:
+
+•	Create an EC2 instance and build image of any application using Docker
+•	Create a private ECR repo and push this docker image to ECR repo
+•	Deploy the application on ECS and check if the application works fine
+
+#########################################################################
+
+RDS-POC
+
+1.	Take 3-tier application in any language but your database should be on AWS RDS(MYSL).
+2.	Create Amazon RDS database instance in private subnet and access it using bastion host.
+3.	Take backup and restore using Amazon S3.
+
+########################################################################
+
+POC for CloudWatch, CloudTrail and S3
+
+Task List for CloudWatch and CloudTrail :
+
+1. Collect and track key performance metrics for EC2 instances and S3 buckets
+2. Perform mathematical operations on EC2 and S3 metrics to derive new insights(Using Metric Math feature)
+3. Create a CloudWatch dashboard that visualizes EC2 and S3 metrics and trends
+4. Create alarms for metrics like CPU utilization on EC2 and bucket size for S3 and configure notifications
+5. Set up CloudWatch Logs to collect and store log files from EC2 instances and S3 buckets ( using agent)
+6. Perform queries on logs to analyze log data using CloudWatch Logs Insights (Using natural language query generation feature)
+7. Set up CloudWatch Events to route EC2 state change events to SNS
+8. Set up CloudTrail to collect API activity for EC2 and S3
+
+Task for S3 :
+Configure an S3 bucket to replicate objects to another bucket in a same region, apply lifecycle policies to transition objects to Glacier after 30 days and delete them after 365 days, 
+enable server-side encryption, and set up static web hosting.
+
+######################################################################################################################################
+
+Terraform -POC
+
+Below is the list of POCs that you need complete for Terraform :
+              1) Perform state locking.
+                2) Create two resources in different region.
+                3) Create 3 identical resources with different name using loops.
+                4) Deploy 2-tier/3-tier application using terraform (create complete infrastructure using terraform, follow all  best practice)
+
+##############################################################################################################################################################################################################
+
+POC for Kubernetes
+
+Create a cluster and write manifest file for the following topics and attach the SS of running pods:
+1.	Pod creation
+2.	Labels and set based selector
+3.	Node affinity (show how a pod is scheduled on a particular node)
+4.	Replica Set (Show how pods are scaled up/down)
+5.	Deployment object ( show how the version is roll-backed)
+
+#####################################################################################################################
