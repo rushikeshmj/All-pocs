@@ -1,0 +1,61 @@
+Day to Day Activities:
+• Monitor Infrastructure status by using CloudWatch
+• Check Jira ticket status and work on pending task
+• Production release management if any
+• Setup CICD pipeline according to project requirement
+• Follow best practices Git branching strategy in CICD for deployments
+• Write Docker file as per the application
+• Create/Manage infra on AWS using terraform.
+• Add new users or provide access to users as per request in IAM.
+• Daily standups, client meetings and internal team meetings
+• Create infrastructure related documents in confluence
+
+Real Time Issues & Troubleshooting
+AWS: -
+ Increase EBS Volume Size for EC2 without Downtime
+ Configure Auto Scaling for Better Optimized Setup
+ Enable termination protection for RDS, Load Balancer, and EC2
+ Delete older files from S3 Bucket
+ Server performance is very slow. Increase Instance types
+ RDS database server working slow.
+ Server and Database not able to connect
+ Security group policy
+ IAM User or Role with policy management
+ S3 Bucket Security. Don't make S3 bucket public
+ Automate the EC2, Database Backup
+
+Jenkins
+ Pipeline failure due to server not connect
+ Plugins upgradation issue
+ Configuration issue with pipeline like variables, SSH etc.
+ Agent failure during pipeline execution
+ Jenkins master server crash or failure
+ Limitation of build executors
+ Store credentials securely
+ Security Vulnerabilities like port open, unsecured configurations etc
+ Outdated Jenkins version
+ Master-slave server failure
+
+daily tasks when working with Docker
+1. **Starting and Stopping Containers:**
+2. **Checking Container Status:**
+3. **Managing Images:**
+4. **Building Images:**
+5. **Running Containers:**
+6. **Viewing Logs:**
+7. **Accessing a Container:**
+8. **Inspecting Containers:**
+9. **Managing Networks:**   
+10. **Managing Volumes:**  
+11. **Cleaning Up:**
+12. **Monitoring and Troubleshooting:**
+
+Git and github
+fetching and pulling the latest changes:
+Create a new branch for your task:
+Work on your code, then stage and commit changes:
+Push your changes to GitHub:
+Open a Pull Request on GitHub:
+Review and merge other team members' PRs:
+Update issues or tasks based on the day's work:
+
