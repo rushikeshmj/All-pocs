@@ -1,0 +1,101 @@
+### Basic Commands####################
+ARG is used to define variables
+- **Run a container**:
+  docker run -it ubuntu /bin/bash
+- **List containers**:
+  docker ps -a
+- **Stop a running container**:
+  docker stop CONTAINER_ID 
+- **Start a stopped container**:
+  docker start CONTAINER_ID
+- **Restart a container**:
+  docker restart CONTAINER_ID
+- **Remove a container**:
+  docker rm CONTAINER_ID
+- **View container logs**:
+  docker logs CONTAINER_ID
+ 
+### Image Management#####################3
+
+- **List images**:
+  docker images
+- **Pull an image from a registry**:
+  docker pull IMAGE
+  docker pull ubuntu
+- **Build an image from a Dockerfile**:
+  docker build -t myimage:latest .
+- **Remove an image**:
+  docker rmi IMAGE
+
+### Network Management##############
+
+- **List networks**:
+  docker network ls
+- **Create a network**:
+  docker network create [OPTIONS] NETWORK
+- **Remove a network**:
+  docker network rm NETWORK
+- **Inspect a network**:
+  docker network inspect NETWORK
+  
+### Volume Management#################
+
+- **List volumes**:
+  docker volume ls
+- **Create a volume**:
+  docker volume create [OPTIONS] [VOLUME]
+- **Remove a volume**:
+  docker volume rm VOLUME
+- **Inspect a volume**:
+  docker volume inspect VOLUME
+
+### Docker Compose#########################
+
+- **Start services defined in a `docker-compose.yml` file**:
+  docker-compose up -d
+- **Stop services**:
+  docker-compose down [OPTIONS]
+- **View service logs**:
+  docker-compose logs [OPTIONS] [SERVICE...]
+
+### System Management###########################
+
+- **Display system-wide information**:
+  docker info
+- **Prune unused objects**:
+  docker system prune [OPTIONS] 
+- **Display disk usage**:
+  docker system df
+
+### Miscellaneous####################33
+
+- **Execute a command in a running container**:
+  docker exec -it CONTAINER_ID /bin/bash
+- **Copy files/folders between a container and the local filesystem**:
+  docker cp CONTAINER:SRC_PATH DEST_PATH
+  docker cp SRC_PATH CONTAINER:DEST_PATH
+- **Tag an image**:IMAGE[:TAG] TARGET_IMAGE[:TAG]
+- **Push an image to a registry**:
+  docker push IMAGE[:TAG]
+  
+ A `Dockerfile` is a script containing a series of instructions on how to build a Docker image.
+
+### Explanation of Each Instruction:
+
+1. **`FROM`**:
+   - Specifies the base image to use for the Docker image. In this case, it's the official Node.js image version 14.  
+2. **`WORKDIR`**:
+   - Sets the working directory for the subsequent instructions in the Dockerfile. This directory is created if it doesn't exist.   
+3. **`COPY`**:
+   - Copies files or directories from the host file system into the image. The first argument is the source, and the second is the destination.
+   - `COPY package*.json ./` copies both `package.json` and `package-lock.json` to the working directory.  
+4. **`RUN`**:
+   - Executes commands in the container. `RUN npm install` installs the Node.js dependencies defined in `package.json`.  
+5. **`COPY` (again)**:
+   - Copies the rest of the application files to the working directory.  
+6. **`EXPOSE`**:
+   - Informs Docker that the container listens on the specified network port at runtime. This doesn't actually publish the port; it's just documentation within the Dockerfile. Use the `-p` flag with `docker run` to publish and map the port.   
+7. **`CMD`**:
+   - Specifies the command to run within the container when it starts. 
+8. ENTRYPOINT
+   - will always be executed when the container starts. It is difficult to override.
